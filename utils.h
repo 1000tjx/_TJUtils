@@ -82,7 +82,15 @@ namespace tjutils {
 	
 	inline void ignore_line()
 	{
-	    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	    if (std::cin.fail())
+	    {
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	    }
+	    else
+	    {
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	    }
 	}
 }
 
