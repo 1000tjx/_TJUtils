@@ -67,7 +67,7 @@ namespace TJUtils {
 		std::this_thread::sleep_for(std::chrono::milliseconds(random_ms(_from, _to)));
 	}
 	
-	inline bool approximatelyEqualAbsRel(double a, double b, double absEpsilon=1e-12, double relEpsilon=1e-8)
+	inline bool approximatelyEqual(double a, double b, double absEpsilon=1e-12, double relEpsilon=1e-8)
 	{
 	    // Check if the numbers are really close -- needed when comparing numbers near zero.
 	    double diff{ std::abs(a - b) };
