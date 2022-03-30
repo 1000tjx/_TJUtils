@@ -8,7 +8,7 @@
 #include <thread>
 #include <chrono>
 
-namespace TJUtils {
+namespace tjutils {
 
 	inline bool str_contains(std::string main_str, std::string sub_str) {
 		return main_str.find(sub_str) != std::string::npos;
