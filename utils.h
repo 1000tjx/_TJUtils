@@ -66,6 +66,17 @@ namespace TJUtils {
 	inline void thread_sleep(float _from, float _to) {
 		std::this_thread::sleep_for(std::chrono::milliseconds(random_ms(_from, _to)));
 	}
+	
+	inline bool approximatelyEqualAbsRel(double a, double b, double absEpsilon=1e-12, double relEpsilon=1e-8)
+	{
+	    // Check if the numbers are really close -- needed when comparing numbers near zero.
+	    double diff{ std::abs(a - b) };
+	    if (diff <= absEpsilon)
+		return true;
+
+	    // Otherwise fall back to Knuth's algorithm
+	    return (diff <= (std::max(std::abs(a), std::abs(b)) * relEpsilon));
+	}
 }
 
 #endif
