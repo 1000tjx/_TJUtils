@@ -1,2 +1,2 @@
 # Usefule functions for c++ 
-- namespace: TJUtils
+- namespace: tjutils
