@@ -7,6 +7,8 @@
 #include <random>
 #include <thread>
 #include <chrono>
+#include <limits> // for std::numeric_limits
+
 
 namespace tjutils {
 
@@ -67,7 +69,7 @@ namespace tjutils {
 		std::this_thread::sleep_for(std::chrono::milliseconds(random_ms(_from, _to)));
 	}
 	
-	inline bool approximatelyEqual(double a, double b, double absEpsilon=1e-12, double relEpsilon=1e-8)
+	inline bool approximately_equal(double a, double b, double absEpsilon=1e-12, double relEpsilon=1e-8)
 	{
 	    // Check if the numbers are really close -- needed when comparing numbers near zero.
 	    double diff{ std::abs(a - b) };
@@ -76,6 +78,11 @@ namespace tjutils {
 
 	    // Otherwise fall back to Knuth's algorithm
 	    return (diff <= (std::max(std::abs(a), std::abs(b)) * relEpsilon));
+	}
+	
+	inline void ignore_line()
+	{
+	    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
 }
 
