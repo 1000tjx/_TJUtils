@@ -12,7 +12,6 @@
 
 namespace tjutils {
 
-    std::random_device rd;
     inline void ignoreLine()
     {
         if (std::cin.fail())
@@ -30,13 +29,14 @@ namespace tjutils {
         return main_str.find(sub_str) != std::string::npos;
     }
 
-    inline double randomNumber(double a, double b) {
+    inline double randomNumber(float a, float b) {
+        std::random_device rd;
         std::default_random_engine eng(rd());
         std::uniform_real_distribution<> distr(a, b);
         return distr(eng);
     }
 
-    inline int randomMS(double a, double b) {
+    inline int randomMS(float a, float b) {
         return (int)(randomNumber(a, b) * 10000);
     }
 
