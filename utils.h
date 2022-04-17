@@ -92,6 +92,28 @@ namespace tjutils {
         // Otherwise fall back to Knuth's algorithm
         return (diff <= (std::max(std::abs(a), std::abs(b)) * relEpsilon));
     }
+    
+    template <typename T, std::size_t size>
+    inline void printArr(std::array<T, size>& arr)
+    {
+        std::cout << '[';
+        for (auto ptr{ arr.begin() }; ptr != arr.end(); ++ptr)
+        {
+            std::cout << *ptr << ", ";
+        }
+        std::cout << ']' << '\n';
+    }
+
+
+    template <typename T>
+    inline void printVector(std::vector<T>& vect)
+    {
+    std::cout << '[';
+    for (auto ptr{ vect.begin() }; vect != arr.end(); ++ptr)
+    {
+        std::cout << *ptr << ", ";
+    }
+    std::cout << ']' << '\n';
 
 }
 
